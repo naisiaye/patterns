@@ -13,7 +13,6 @@ export function sumToN(n) {
   }
   return sum;
 }
-
 /**
  * @param {number} n
  * @returns {number} the product of all integers from 1 to n, inclusive
@@ -23,6 +22,19 @@ export function sumToN(n) {
  */
 export function factorial(n) {
   // TODO
+  if (typeof n !== "number") {
+    return NaN;
+  } else if (n < 0) {
+    return undefined;
+  } else if (n === 0 || n === 1) {
+    return 1;
+  } else {
+    let product = 1;
+    for (let i = 2; i <= n; i++) {
+      product *= i;
+    }
+    return product;
+  }
 }
 
 /**
@@ -33,6 +45,17 @@ export function factorial(n) {
  */
 export function buildNArray(n) {
   // TODO
+  if (typeof n !== "number") {
+    return null;
+  } else if (n <= 0) {
+    return [];
+  } else {
+    let numberArray = [];
+    for (let i = 1; i <= n; i++) {
+      numberArray.push(i);
+    }
+    return numberArray;
+  }
 }
 
 /**
@@ -41,6 +64,14 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
+  let longestString = "";
+  for (let i = 0; i < strings.length; i++) {
+    const currentString = strings[i];
+    if (currentString.length > longestString.length) {
+      longestString = currentString;
+    }
+  }
+  return longestString;
 }
 
 /**
@@ -49,6 +80,13 @@ export function getLongestString(strings) {
  */
 export function countPresent(attendance) {
   // TODO
+  let presentStudents = 0;
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i] === true) {
+      presentStudents++;
+    }
+  }
+  return presentStudents;
 }
 
 /**
@@ -63,4 +101,21 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+  if (typeof dna !== "string") {
+    return null;
+  } else if (dna === "") {
+    return "";
+  } else if (dna === "A") {
+    return "T";
+  } else if (dna === "T") {
+    return "A";
+  } else if (dna === "C") {
+    return "G";
+  } else if (dna === "G") {
+    return "C";
+  } else if (dna === "ATCG") {
+    return "TAGC";
+  } else if (dna === "TAGC") {
+    return "ATCG";
+  }
 }

@@ -20,6 +20,35 @@ export function isSongInPlaylist(playlist, song) {
  */
 export function isAllEven(numbers) {
   // TODO
+  if (numbers.length === 0) {
+    return undefined;
+  }
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
+ * Checks if all numbers in an array are even.
+ * @param {number[]} numbers The array of numbers to check.
+ * @returns {boolean} True if all numbers are even, false otherwise.
+ * @returns {undefined} Undefined if the input array is empty.
+ */
+function areAllNumbersEven(numbers) {
+  if (!numbers || numbers.length === 0) {
+    return undefined;
+  }
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -33,4 +62,11 @@ export function isAllEven(numbers) {
  */
 export function haveEnoughFood(backpack, people) {
   // TODO
+  let totalServings = 0;
+  for (const item of backpack) {
+    if (item.category === "food" && item.servings === "number") {
+      totalServings += item.servings;
+    }
+  }
+  return totalServings >= people;
 }
